@@ -1,0 +1,117 @@
+<div class="row">
+  <div class="col-12">
+    <div class="col-1">
+      <div class="buttonVoltar" (click)="goToAdmin()">
+        <i style="margin-right: 10px" class="bi bi-arrow-return-left"></i>
+        <p> Voltar</p>
+      </div>
+    </div>
+    <h1 style="font-weight: bold;
+      color: #545d89;"><i style="margin-right: 10px;" class="bi
+        bi-collection-play-fill"></i>{{titleComponent}}</h1>
+  </div>
+  <div class="col-12" [ngClass]="size <= 767 ? 'w-100' : 'w-25'"
+    style="margin-top: 1%;">
+    <form [formGroup]="formGroup">
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12" style="margin-right: 2%">
+          <p>Nome do Curso</p>
+          <app-input-dynamic
+            [inputType]="{ name: 'input-normal' }"
+            [readonly]="false"
+            [nameFormGroup]="formGroup"
+            [name]="'cursoName'"
+            [placeHolder]="'Digite a descrição'"
+            [tipo]="'text'"
+            [isInvalid]="true"
+            [id]="'cursoName'"
+            (validTouched)="validTouch($event)">
+          </app-input-dynamic>
+        </div>
+      </div>
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12">
+          <p>Descrição</p>
+          <div class="form-group">
+            <textarea label="Digite a descrição" for="descricaoCurso"
+              formControlName="descricaoCurso" class="form-control"
+              id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="formVisible !== 'editarCurso'" class="col-12" style="display:
+        flex">
+        <div class="mb-3 col-12">
+          <p>Professor</p>
+          <mat-form-field style="width: 100%;">
+            <mat-label>{{titles}}</mat-label>
+            <mat-select for="professorName"
+              formControlName="professorName">
+              <mat-option (selectionChange)="slectedProfessor($event)"
+                *ngFor="let prof
+                of professor; let i= index"
+                [value]="prof">{{prof.nome}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12">
+          <div>
+            <p>Imagem Divulgação</p>
+            <p style=" margin-top: -11px;
+              font-size: 12px;
+              color: #304bc7;">Utilize imagem 480 x 669</p>
+          </div>
+
+
+          <input type="file" name="imagemDivulgacao"
+            (change)="selectFile($event)">
+        </div>
+      </div>
+      <div class="col-8" style="display: flex">
+        <div class="mb-3 col-12">
+          <div>
+            <p>Imagem Capa</p>
+            <p style=" margin-top: -11px;
+              font-size: 12px;
+              color: #304bc7;">Utilize imagem 700 x 200</p>
+          </div>
+          <input type="file" name="imagemCapa" (change)="selectFileTwo($event)">
+        </div>
+      </div>
+
+      <div class="col-8" style="display: flex">
+        <div class="mb-3 col-">
+          <app-button-dynamic
+            *ngIf="formVisible === 'adicionarCurso'"
+            [buttonType]="{ name: 'button-normal' }"
+            [type]="'button'"
+            [id]="'buttonSubmit'"
+            [title]="loading === false ? 'Cadastrar Curso' : 'Carregando...'"
+            [autentication]="true"
+            [action]="'cadastrarCurso'"
+            [loading]="loading"
+            (buttonFunction)="stepActionButtons($event)">
+          </app-button-dynamic>
+
+          <app-button-dynamic
+            *ngIf="formVisible === 'editarCurso'"
+            [buttonType]="{ name: 'button-normal' }"
+            [type]="'button'"
+            [id]="'buttonSubmit'"
+            [title]="loading === false ? 'Editar Curso' : 'Carregando...'"
+            [autentication]="true"
+            [action]="'editarCurso'"
+            [loading]="loading"
+            (buttonFunction)="stepActionButtons($event)">
+          </app-button-dynamic>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+</div>

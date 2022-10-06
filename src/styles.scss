@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: #d3d6e6;
+}
+
+body {
+  position: relative;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Custom input placeholder */
+.form-control:focus::placeholder {
+  font-size: 10px;
+  position: absolute;
+  color: rgb(211, 211, 211);
+  left: 8px;
+  top: 6px;
+  transition: all 0.2s ease 0s;
+}
+
+.form-control:hover {
+  background-color: rgb(250, 250, 250);
+  transition: all 0.2s ease 0s;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 1px;
+  transition: all ease 0.5s;
+}
+
+::-webkit-scrollbar-track-piece:hover {
+  background: rgb(250, 250, 250);
+  transition: all ease 0.5s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(178, 181, 195);
+  transition: all ease 0.5s;
+}
+
+/* colors system */
+
+/* Texts */
+.primary-color {
+  color: #4364e8;
+}
+
+.text-color {
+  color: #2d2d2e;
+}
+
+/* Buttons Colors */
+.primary-button-color {
+  background: #4364e8;
+}
+
+.cancel-button-color {
+  background: #3f4147;
+}
+
+.seccondary-button-color {
+  background: #ff7300;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  margin: 1.25rem 0 1.25rem 0;
+  box-shadow: 0 0.25rem 0.5rem #e6edef;
+
+  .card-head {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #edf1f7;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .card-body {
+    padding: 1rem 1.5rem;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

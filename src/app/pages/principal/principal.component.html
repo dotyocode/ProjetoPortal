@@ -1,0 +1,117 @@
+<div class="row">
+  <div class="col-12">
+    <div *ngIf="itens === false" class="centerLoading">
+      <div>
+        <mat-spinner [diameter]="70" value="determinate"></mat-spinner>
+        <p class="titleLoading">Carregando</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="itens === true" class="col-12 col-md-8 col-sm-12"
+    style="padding: 10px;" [style.margin-bottom]="this.sizes >= 768 ? '0px' :
+    '10px'">
+    <div class="containerTitles">
+      <h1 class="noticiaTitle">Conteúdos
+        Gratuitos</h1>
+      <p class="buttonSeeMore">ver mais</p>
+    </div>
+    <carousel [overflowCellsLimit]="2" [style.height]="this.sizes >=
+      768 ?
+      '279px' :
+      '150px'" >
+      <div *ngFor="let i of cursos" class="carousel-cell teste"
+        style="transform: translateX(141px);
+        width: 110px;" (click)="getCursoId(i.id)">
+        <div *ngIf="this.sizes >= 768" class="information">
+          <div class="position">
+            <p class="professorInfo">Com: {{i.professor.nome}}</p>
+            <div class="cursoContainer">
+              <h3 class="cursoTitle">Curso:</h3>
+              <p class="cursoInfo">{{i.descricao}}</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div [ngClass]="this.sizes >= 768 ? 'testes' : 'testesMobile'">
+            <img class="imagemContainer"
+              src="{{i.imagemDivulgacao}}" />
+          </div>
+        </div>
+      </div>
+    </carousel>
+    <mat-progress-bar *ngIf="this.loading === true" mode="indeterminate"></mat-progress-bar>
+    <div style="background: #0d6efd;
+      height: 130px;
+      margin-top: 3%;">
+      <p style="color: white; text-align: center">Banner com 130px de altura</p>
+    </div>
+  </div>
+
+
+  <div *ngIf="itens === true" class="col-12 col-md-4
+    col-sm-12">
+    <div class="containerTitles">
+      <h1 class="noticiaTitle">Artigos</h1>
+      <p class="buttonSeeMore">ver mais</p>
+    </div>
+    <div [ngClass]="this.sizes >= 768 ? 'divNews' : 'divNewsMobile'">
+      <div class="noticiasBox">
+        <div class="boxNoticia" *ngFor="let
+          itens of
+          noticias;">
+          <div class="example-card cardStyles">
+            <div class="divImageNoticias">
+              <img [ngClass]="this.sizes >= 768 ? 'noticiasNormal' :
+              'noticiasMobiles'"
+              class="imagemContainer"
+              src="{{itens.imagemDivulgacao}}" />
+              <div>
+                <p [ngClass]="this.sizes >= 768 ? 'titleNoticias' :
+                  'titleNoticiasMobile'">{{itens.titulo}}</p>
+                <button mat-button (click)="verNoticias(itens.id)"
+                  class="buttonSeeMores">Ler
+                  noticia</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2%" *ngIf="itens === true" class="col-12 col-md-8
+    col-sm-12">
+    <div class="image-cards" [ngClass]="this.sizes >= 768 ? 'image-cardMobile'
+      : ''" >
+      <div [style.width]="this.sizes >= 768 ? '38%' :
+        '100%'" [style.margin-top]="this.sizes >= 768 ? '' :
+        '2%'" class="image-card image-card--shadow is-selected"
+        aria-selected="true">
+        <a href="https://google.com.br/">
+          <div class="image-card__image" style="background-image:
+            url(https://api.creditas.io/creditas-site/images/preview.jpg);"></div>
+        </a>
+      </div>
+
+      <div [style.width]="this.sizes >= 768 ? '38%' :
+        '100%'" [style.margin-top]="this.sizes >= 768 ? '' :
+        '2%'" class="image-card image-card--shadow is-selected"
+        aria-selected="true">
+        <a href="https://google.com.br/">
+
+          <div class="image-card__image" style="background-image:
+            url(https://camilarenaux.com.br/wp-content/uploads/2021/07/capa-curso-imersao-digital-360.png);"></div>
+        </a>
+      </div>
+
+      <div [style.width]="this.sizes >= 768 ? '38%' :
+        '100%'" [style.margin-top]="this.sizes >= 768 ? '' :
+        '2%'" class="image-card image-card--shadow is-selected"
+        aria-selected="true">
+        <a href="https://google.com.br/">
+          <div class="image-card__image" style="background-image:
+            url(https://agenciamktideas.com/wp-content/uploads/2018/05/consultoria-de-marketing-o-que-e-e-como-pode-me-ajudar.jpg);"></div>
+        </a>
+      </div>
+    </div>
+  </div>

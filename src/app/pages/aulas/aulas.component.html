@@ -1,0 +1,105 @@
+<div class="">
+  <div class="row">
+    <div class="col-12">
+      <div *ngIf="!curso" class="centerLoading">
+        <div>
+          <mat-spinner [diameter]="70" value="determinate"></mat-spinner>
+          <p class="titleLoading">Carregando</p>
+        </div>
+      </div>
+    </div>
+    <div (click)="goToDashboard()" *ngIf="size >= 1214 && curso"
+      class="containerMaster2">
+      <p style="color: white"><i class="bi bi-arrow-left-square-fill"></i>
+      </p>
+    </div>
+    <div *ngIf="size >= 1214 && curso" class="containerMaster">
+      <div>
+        <div>
+          <img class="imagem" [src]="image">
+        </div>
+        <div *ngIf="size >= 1214" class="subContainer">
+          <div *ngIf="size >= 1214" class="division">
+            <div class="buttonDivision">
+              <p (click)="goToClass(curso.id)" class="buttonDiv">Ir para
+                o Curso</p>
+            </div>
+          </div>
+          <div class="subInformations">
+            <h3 class="informationTittle">Este curso inclui</h3>
+            <p><i class="bi bi-play-btn-fill"></i> 15,5 horas de vídeo
+              sob demanda</p>
+            <p><i class="bi bi-phone-fill"></i> Acesso no dispositivo
+              móvel e na TV</p>
+          </div>
+          <div class="buttonDivs">
+            <button mat-button>Compartilhar</button>
+            <button mat-button>Sugestões</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="curso" class="col-12">
+      <img *ngIf="size <= 1213" class="imagems" [src]="image">
+      <div style="background:
+        #304bc7; height: auto" class="col-12">
+        <div style="padding: 15px">
+          <div style="display: flex; justify-content:
+            center; padding: 10px">
+            <div class="col-12 col-md-10 col-sm-12">
+              <div>
+                <div *ngIf="size >= 1214">
+                  <p style="color: white; margin-bottom: 2%"
+                    routerLink="/dashboard" class="badBroad">Aulas /
+                    {{curso.nome}}</p>
+                </div>
+                <h1 [ngClass]="size >= 1214 ? 'titleCurso' :
+                  'titleCursoMobile'">{{curso.nome}}</h1>
+                <p class="cursoDescriptions"> {{curso.descricao}}</p>
+                <p class="informationEx"><i class="bi bi-person-circle"></i>
+                  Criado por: {{curso.professor.nome}}</p>
+                <p class="informationEx"><i class="bi bi-alarm-fill"></i> Ultima
+                  atualização em: 25/06/2022</p>
+                <p class="informationEx"><i class="bi bi-globe"></i> Idioma:
+                  Português/Brasil</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="size <= 1213">
+        <p (click)="goToClass(curso.id)" class="buttonDivsz">Ir para
+          o Curso</p>
+      </div>
+      <div [ngClass]="size >= 1214 ? 'divInfomationCurso' :
+        'divInfomationCursoMobile'">
+        <div class="col-12 col-md-6 col-sm-12">
+          <div class="paddingInformation">
+            <div class="informationsC">
+              <h1 class="informationTittle">Sobre o
+                curso:</h1>
+              <p>Mais um curso para aqueles que querem ou precisam dominar o
+                framework Java mais utilizado do momento: Spring Boot.</p>
+              <p>Mais um curso para aqueles que querem ou precisam dominar o
+                framework Java mais utilizado do momento: Spring Boot.
+
+                Neste curso iremos abordar toda a arquitetura e os módulos que
+                compôem esse grande framework. Não é um curso para experts é um
+                curso para tornar-se um expert, utilize-o como fonte de
+                conhecimento
+                prático acerca do Spring e seu ecossistema.</p>
+            </div>
+            <div class="informationsC">
+              <h1 class="informationTittle">Para quem é este curso:</h1>
+              <p>Desenvolvedores Java que queiram dominar o Spring Boot</p>
+              <p> Iniciantes que queiram aprender sobre o framework mais atual
+                no
+                mercado Java</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-sm-12"></div>
+      </div>
+    </div>
+  </div>
+</div>

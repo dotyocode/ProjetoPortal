@@ -1,0 +1,3 @@
+<app-dashboard *ngIf="this.mostrarMenu"
+  [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth"></app-dashboard>
+<router-outlet *ngIf="!this.mostrarMenu"></router-outlet>

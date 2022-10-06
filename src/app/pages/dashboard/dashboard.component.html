@@ -1,0 +1,108 @@
+
+
+<mat-sidenav-container style="" class="sideBar">
+  <mat-sidenav [ngClass]="isMenuOpen === true ? 'menu-open' : 'menu-close'"
+    id="recuarSide" *ngIf="testes >= 768" [(opened)]="testes
+    >= 768 ?
+    openedOpen :
+    openedClose"
+    mode="side">
+    <div class="logo-container">
+      <button (click)="recuar()" class="logo">K</button>
+      <div class="logo-text">Portal Konsta</div>
+      <i (click)="recuar()" class="bi bi-arrow-left-circle-fill buttonRecuar"></i>
+    </div>
+    <hr>
+    <ul class="sidenav-nav">
+      <li class="sidenav-nav-item">
+        <a class="sidenav-nav-link"
+          [routerLink]="['/dashboard']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">
+          <i class="sidenav-link-icon fal fa-home"></i>
+          <span class="sidenav-link-text">Home</span>
+        </a>
+      </li>
+      <li (click)="goToAdm()" *ngIf="tipoUsuario === 'ADMIN'"
+        class="sidenav-nav-item">
+        <a class="sidenav-nav-link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">
+          <i class="sidenav-link-icon bi bi-play-btn-fill"></i>
+          <span class="sidenav-link-text">Painel de Administrador</span>
+        </a>
+      </li>
+      <li class="sidenav-nav-item">
+        <a class="sidenav-nav-link"
+          [routerLink]="['/conteudos-gratuito']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">
+          <i class="sidenav-link-icon bi bi-collection-play-fill"></i>
+          <span class="sidenav-link-text">Conteúdos gratuito</span>
+        </a>
+      </li>
+      <li (click)="goToFerramentas()" class="sidenav-nav-item">
+        <a class="sidenav-nav-link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">
+          <i class="sidenav-link-icon bi bi-tools"></i>
+          <span class="sidenav-link-text">Ferramentas</span>
+        </a>
+      </li>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav *ngIf="testes <= 767" [opened]="openMobile"
+    mode="over">
+    <div class="logo-container">
+      <button class="logo">K</button>
+      <div class="logo-text">Strategy</div>
+    </div>
+    <hr>
+    <ul class="sidenav-nav">
+      <li class="sidenav-nav-item" *ngFor="let data of navData">
+        <p class="sidenav-nav-link"
+          (click)="navigate(data.routerLink)"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">
+          <i class="sidenav-link-icon" [class]="data.icon"></i>
+          <span class="sidenav-link-text">{{data.label}}</span>
+        </p>
+      </li>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content id="navStorm"
+    [ngStyle]="{'margin-left.px': contentMargin}">
+    <mat-toolbar style="background: white">
+      <i (click)="openMenu()" *ngIf="this.testes <= 767"
+        style="font-size: 2rem;"
+        class="bi bi-list"></i>
+      <div
+        style="width: 100%;
+        display: flex;
+        justify-content: end;
+        font-weight: 200;
+        font-size: 18px;">
+        <p *ngIf="nome" style="margin-top: 3px;">{{nome}}</p>
+        <button mat-icon-button [matMenuTriggerFor]="menu"
+          aria-label="Example
+          icon-button with a menu">
+          <mat-icon>expand_more</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button (click)="logout()" mat-menu-item>
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+        <div *ngIf="nome" style="margin-right: 1%;"
+          [style.background-image]="'url(' + foto +
+          ')'" class="foto">.</div>
+      </div>
+    </mat-toolbar>
+    <mat-progress-bar *ngIf="this.loading === true" mode="indeterminate"></mat-progress-bar>
+    <div [ngClass]="this.testes >= 768 ? 'testesx' : 'testesxMobile'"
+      id="testesx">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

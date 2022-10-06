@@ -1,0 +1,17 @@
+<div class="container" [ngClass]="this.sizes >= 768 ? 'w-75' : ''">
+  <div class="row">
+    <div class="col-12" [style.width]="this.sizes >= 768 ? '80%' : '100%'">
+      <div>
+        <p routerLink="/dashboard" class="badBroad">Noticias /
+          {{this.professores.titulo}}</p>
+      </div>
+      <div style="margin-bottom: 3%">
+        <!-- <p class="release">Noticias Relacionadas</p> -->
+        <h1 class="tituloNoticia">{{this.professores.titulo}}</h1>
+
+        <p>Por: {{this.professores.autor}}</p>
+      </div>
+      <div [innerHTML]="this.professores.textoNoticia">
+      </div>
+    </div>
+  </div>

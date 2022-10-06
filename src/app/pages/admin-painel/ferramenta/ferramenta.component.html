@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-12">
+    <div class="col-1">
+      <div class="buttonVoltar" (click)="goToAdmin()">
+        <i style="margin-right: 10px" class="bi bi-arrow-return-left"></i>
+        <p> Voltar</p>
+      </div>
+    </div>
+    <h1 style="font-weight: bold;
+      color: #545d89;"><i style="margin-right: 10px;" class="bi bi-tools"></i>{{titleComponent}}</h1>
+  </div>
+  <div class="col-12" [ngClass]="size <= 767 ? 'w-100' : 'w-25'"
+    style="margin-top: 1%;">
+    <form [formGroup]="formGroup">
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12" style="margin-right: 2%">
+          <p>Nome da Ferramenta</p>
+          <app-input-dynamic
+            [inputType]="{ name: 'input-normal' }"
+            [readonly]="false"
+            [nameFormGroup]="formGroup"
+            [name]="'cursoName'"
+            [placeHolder]="'Digite o nome da Ferramenta'"
+            [tipo]="'text'"
+            [isInvalid]="true"
+            [id]="'cursoName'"
+            (validTouched)="validTouch($event)">
+          </app-input-dynamic>
+        </div>
+      </div>
+
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12" style="margin-right: 2%">
+          <p>Descrição</p>
+          <div class="form-group">
+            <textarea label="Digite a descrição" for="descricao"
+              formControlName="descricao" class="form-control"
+              id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12">
+          <p>Selecione a capa</p>
+          <input type="file" name="foto"
+            (change)="selectFileTwo($event)">
+        </div>
+      </div>
+
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12">
+          <p>Faça upload da nova ferramenta</p>
+          <input type="file" name="arquivo"
+            (change)="selectFile($event)">
+        </div>
+      </div>
+
+      <div class="col-8" style="display: flex">
+        <div class="mb-3 col-">
+          <app-button-dynamic
+            *ngIf="formVisible === 'adicionarFerramentas'"
+            [buttonType]="{ name: 'button-normal' }"
+            [type]="'button'"
+            [id]="'buttonSubmit'"
+            [title]="loading === false ? 'Adicionar Ferramenta' :
+            'Carregando...'"
+            [autentication]="true"
+            [action]="'cadastrarCurso'"
+            [loading]="loading"
+            (buttonFunction)="stepActionButtons($event)">
+          </app-button-dynamic>
+
+          <app-button-dynamic
+            *ngIf="formVisible === 'editarFerramentas'"
+            [buttonType]="{ name: 'button-normal' }"
+            [type]="'button'"
+            [id]="'buttonSubmit'"
+            [title]="loading === false ? 'Editar Ferramenta' : 'Carregando...'"
+            [autentication]="true"
+            [action]="'editarCurso'"
+            [loading]="loading"
+            (buttonFunction)="stepActionButtons($event)">
+          </app-button-dynamic>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+</div>

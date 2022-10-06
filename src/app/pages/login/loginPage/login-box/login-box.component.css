@@ -1,0 +1,47 @@
+.flexDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.welcomeMessage {
+  margin-bottom: 5%;
+}
+
+.vindas {
+  font-size: 20px;
+  text-align: start;
+  line-height: 30px;
+}
+
+.vindasMobile {
+  font-size: 18px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.formChart {
+  margin-bottom: 5%;
+}
+
+.signUpMore {
+  margin-bottom: 8%;
+}
+
+.infoSignUpMore {
+  text-align: center;
+}
+
+
+.texts {
+  color: #ffffff;
+  background: #03375c;
+  width: 39px;
+  padding: 8px 0px;
+  font-weight: bold;
+  height: 35px;
+  font-size: 23px;
+  text-align: center;
+  border-radius: 10px;
+  margin-left: 44%;
+  margin-bottom: 7%;
+}

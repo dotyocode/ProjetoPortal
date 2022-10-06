@@ -1,0 +1,41 @@
+.disponiveis {
+  font-weight: bold;
+  color: #545d89;
+}
+
+
+mat-list-option[aria-selected="true"] {
+  background: #e5edfd;
+  font-weight: 700;
+  color: #727272
+}
+
+
+.containerTitles {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.buttonSeeMore {
+  background: #e1e6f7;
+  padding: 6px;
+  border-radius: 11px;
+  height: 30px;
+  width: auto;
+  text-align: center;
+  color: #9981c7;
+  transition: all ease 0.2s;
+  cursor: pointer;
+}
+
+.buttonSeeMore:hover {
+  background: #7996f7;
+  padding: 6px;
+  margin-left: 2%;
+  height: 30px;
+  width: auto;
+  text-align: center;
+  color: #ffffff;
+  transition: all ease 0.2s;
+}

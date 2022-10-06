@@ -1,0 +1,107 @@
+<div class="row">
+  <div *ngIf="!nome" class="centerLoading">
+    <div>
+      <mat-spinner [diameter]="70" value="determinate"></mat-spinner>
+      <p class="titleLoading">Carregando</p>
+    </div>
+  </div>
+  <div *ngIf="nome">
+    <div class="col-12">
+      <h1>{{saudacaoConst}}, {{nome}}</h1>
+      <p>Bem vindo ao painel de Administrador</p>
+    </div>
+    <div class="col-12" style="margin-top: 2%">
+      <h1 style="font-weight: bold;
+        color: #545d89;">Painel Cursos</h1>
+      <div style="display: flex">
+
+        <div (click)="createCurso()" class="containerCurso">
+          <div class="centered">
+            <i class="bi bi-collection-play-fill iconText"></i>
+            <p class="buttonItem">Adicionar Curso</p>
+          </div>
+        </div>
+
+        <div (click)="alterarCurso()" class="containerCurso">
+          <div class="centered">
+            <i class="bi bi-pencil-square iconText"></i>
+            <p class="buttonItem">Editar Curso</p>
+          </div>
+        </div>
+
+        <div (click)="createProfessor()" class="containerCurso">
+          <div class="centered">
+            <i class="bi bi-person-plus-fill iconText"></i>
+            <p class="buttonItem">Adicionar Professor</p>
+          </div>
+        </div>
+
+        <div (click)="alterarProfessor()" class="containerCurso">
+          <div class="centered">
+            <i class="bi bi-person-lines-fill iconText"></i>
+            <p class="buttonItem">Alterar Professor</p>
+          </div>
+        </div>
+
+        <div (click)="adicionarAula()" class="containerCurso">
+          <div class="centered">
+            <i class="bi bi-play-fill iconText"></i>
+            <p class="buttonItem">Adicionar Aula</p>
+          </div>
+        </div>
+
+        <div (click)="editarAula()" class="containerCurso">
+          <div class="centered">
+            <i class="bi bi-file-slides iconText"></i>
+            <p class="buttonItem">Editar Aulas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12" style="margin-top: 2%">
+      <h1 style="font-weight: bold;
+        color: #545d89;">Painel Noticias</h1>
+      <div style="display: flex">
+
+        <div (click)="createNoticias()" class="containerCurso">
+          <div class="centered">
+            <i class="bi bi-journal-plus iconText"></i>
+            <p class="buttonItem">Adicionar Nóticias</p>
+          </div>
+        </div>
+
+        <div (click)="editarNoticia()" class="containerCurso">
+          <div class="centered">
+            <i class="bi bi-journal-richtext iconText"></i>
+            <p class="buttonItem">Editar Nóticias</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-12" style="margin-top: 2%">
+      <h1 style="font-weight: bold;
+        color: #545d89;">Ferramentas</h1>
+      <div style="display: flex">
+
+        <div (click)="addFerramentas()" class="containerCurso">
+          <div class="centered">
+            <i class="bi bi-tools iconText"></i>
+            <p class="buttonItem">Adicionar Ferramenta</p>
+          </div>
+        </div>
+
+        <div (click)="editarFerramentas()" class="containerCurso">
+          <div class="centered">
+            <i class="bi bi-wrench-adjustable iconText"></i>
+            <p class="buttonItem">Editar Ferramenta</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

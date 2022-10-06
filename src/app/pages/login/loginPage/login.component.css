@@ -1,0 +1,40 @@
+.container {
+  padding: 0;
+  height: 100vh;
+  width: auto;
+}
+
+.teste {
+  background-image: url("../../../../assets/bgLogin.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
+
+.centralizacao {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginPage {
+  background: #f0f2f5;
+  height: 100vh;
+}
+
+.fullColum {
+  height: 100vh;
+}
+
+.texts {
+  color: #03375c;
+  background: white;
+  width: 50px;
+  padding: 13px 0px;
+  font-weight: bold;
+  height: 46px;
+  font-size: 2rem;
+  text-align: center;
+  border-radius: 10px;
+}

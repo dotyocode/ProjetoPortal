@@ -1,0 +1,106 @@
+<div class="row">
+  <div class="col-12">
+    <div class="col-1">
+      <div class="buttonVoltar" (click)="goToAdmin()">
+        <i style="margin-right: 10px" class="bi bi-arrow-return-left"></i>
+        <p> Voltar</p>
+      </div>
+    </div>
+    <h1 style="font-weight: bold;
+      color: #545d89;"><i style="margin-right: 10px;" class="bi
+        bi-person-plus-fill"></i>{{titleComponent}}</h1>
+  </div>
+  <div class="col-12" [ngClass]="size <= 767 ? 'w-100' : 'w-25'"
+    style="margin-top: 1%;">
+    <form [formGroup]="formGroup">
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12" style="margin-right: 2%">
+          <p>Nome do Professor</p>
+          <app-input-dynamic
+            [inputType]="{ name: 'input-normal' }"
+            [readonly]="false"
+            [nameFormGroup]="formGroup"
+            [name]="'nameProfessor'"
+            [placeHolder]="'Digite o nome'"
+            [tipo]="'text'"
+            [isInvalid]="true"
+            [id]="'nameProfessor'"
+            (validTouched)="validTouch($event)">
+          </app-input-dynamic>
+        </div>
+      </div>
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12">
+          <p>E-mail</p>
+          <app-input-dynamic
+            [inputType]="{ name: 'input-normal' }"
+            [readonly]="false"
+            [nameFormGroup]="formGroup"
+            [name]="'emailProfessor'"
+            [placeHolder]="'Digite o E-mail'"
+            [tipo]="'email'"
+            [isInvalid]="true"
+            [id]="'emailProfessor'"
+            (validTouched)="validTouch($event)">
+          </app-input-dynamic>
+        </div>
+      </div>
+
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12" style="margin-right: 2%">
+          <p>Telefone</p>
+          <app-input-dynamic
+            [inputType]="{ name: 'input-normal' }"
+            [readonly]="false"
+            [nameFormGroup]="formGroup"
+            [name]="'telefone'"
+            [placeHolder]="'Digite o telefone'"
+            [tipo]="'text'"
+            [maxLenght]="12"
+            [isInvalid]="true"
+            [id]="'telefone'"
+            (validTouched)="validTouch($event)">
+          </app-input-dynamic>
+        </div>
+      </div>
+
+      <div class="col-8" style="display: flex">
+        <div class="mb-3 col-12">
+          <p>Foto Professor</p>
+          <input type="file" name="fotoProfessor" (change)="selectFile($event)">
+        </div>
+      </div>
+
+      <div class="col-8" style="display: flex">
+        <div class="mb-3 col-">
+          <app-button-dynamic
+            *ngIf="formVisible === 'adicionarProfessor'"
+            [buttonType]="{ name: 'button-normal' }"
+            [type]="'button'"
+            [id]="'buttonSubmit'"
+            [title]="loading === false ? 'Cadastrar Professor' :
+            'Carregando...'"
+            [autentication]="true"
+            [action]="'cadastrarCurso'"
+            [loading]="loading"
+            (buttonFunction)="stepActionButtons($event)">
+          </app-button-dynamic>
+
+          <app-button-dynamic
+            *ngIf="formVisible === 'editarProfessor'"
+            [buttonType]="{ name: 'button-normal' }"
+            [type]="'button'"
+            [id]="'buttonSubmit'"
+            [title]="loading === false ? 'Editar Professor' : 'Carregando...'"
+            [autentication]="true"
+            [action]="'editarCurso'"
+            [loading]="loading"
+            (buttonFunction)="stepActionButtons($event)">
+          </app-button-dynamic>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+</div>

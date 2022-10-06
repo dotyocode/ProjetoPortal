@@ -1,0 +1,23 @@
+.buttonVoltar {
+  display: flex;
+  color: #304bc7;
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+
+.buttonVoltar:hover {
+  color: #9fb0ff;
+  transition: all ease 0.2s;
+}
+
+.deleteItem {
+  text-align: center;
+  color: #e90101;
+  font-size: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.deleteItem:hover {
+  color: #fd6e6e;
+}

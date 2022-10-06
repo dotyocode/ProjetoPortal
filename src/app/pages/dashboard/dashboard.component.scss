@@ -1,0 +1,276 @@
+.body {
+  width: calc(100% - 5rem);
+  height: 100vh;
+  margin-left: 5rem;
+  z-index: 0;
+  position: relative;
+  top: 0;
+  transition: all 0.5s ease;
+  background: #f4f7fa;
+  padding: 3rem;
+}
+
+.testesx {
+  height: 100vh;
+  z-index: 0;
+  position: relative;
+  top: 0;
+  transition: all 0.5s ease;
+  background: #f4f7fa;
+  padding: 20px;
+}
+
+.testesxMobile {
+  height: 100vh;
+  z-index: 0;
+  position: relative;
+  top: 0;
+  transition: all 0.5s ease;
+  background: #f4f7fa;
+  padding: 1rem;
+}
+
+.textex {
+  height: 100vh;
+  z-index: 0;
+  position: relative;
+  top: 0;
+  transition: all 0.5s ease;
+  background: #f4f7fa;
+  padding: 3rem;
+  width: 100%;
+}
+
+.body-trimmed {
+  width: calc(100% - 16.5625rem);
+  margin-left: 16.5625rem;
+}
+
+.body-md-screen {
+  width: calc(100% - 5rem);
+  margin-left: 5rem;
+}
+
+.fa-times {
+  color: #fff;
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+.sidenav-collapsed {
+  width: 16.5625rem;
+  transition: all 0.3s ease;
+}
+
+.sidenav-nav {
+  list-style: none;
+  padding: 0.938rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100% - 3.65rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  .sidenav-nav-item {
+    width: 100%;
+    margin-bottom: 0.625rem;
+    transition: all 0.3s ease;
+
+    .sidenav-nav-link {
+      display: flex;
+      align-items: center;
+      height: 3rem;
+      color: black;
+      border-radius: 0.625rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      .sidenav-link-icon {
+        font-size: 22px;
+        width: 2rem;
+        min-width: 2rem;
+        margin: 0 0.5rem;
+        text-align: center;
+      }
+      .sidenav-link-text {
+        margin-left: 1.5rem;
+      }
+    }
+  }
+
+  .sidenav-nav-item:hover {
+    .sidenav-nav-link {
+      background-color: #fff;
+      color: rgb(174, 174, 175);
+    }
+  }
+}
+
+.active {
+  background-color: #e1e6f7;
+  .sidenav-link-icon {
+    color: #304bc7;
+  }
+  .sidenav-link-text {
+    color: #304bc7;
+  }
+}
+
+mat-sidenav-container {
+  height: 100vh;
+}
+
+mat-sidenav {
+  width: 250px;
+  background-color: #f4f7fa;
+}
+
+.logo-text {
+  margin-left: 1.5rem;
+  font-size: 18px;
+  font-weight: 700;
+  color: #304bc7;
+  transition: all 0.3s ease;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding: 0.938rem 0.938rem 0 0.938rem;
+  width: 100%;
+  transition: all 0.3s ease;
+
+  .logo {
+    background-color: #304bc7;
+    text-align: center;
+    width: 3rem;
+    color: white;
+    min-width: 3rem;
+    border-radius: 0.313rem;
+    padding: 0.313rem;
+    font-size: 24px;
+    font-weight: 900;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+  }
+
+  .logo-text {
+    margin-left: 1.5rem;
+    font-size: 24px;
+    font-weight: 700;
+    color: #304bc7;
+    transition: all 0.3s ease;
+  }
+
+  .btn-close {
+    margin-left: auto;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    transition: all 0.3s ease;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 1px;
+  transition: all ease 0.5s;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: rgb(250, 250, 250);
+  transition: all ease 0.5s;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(178, 181, 195);
+  transition: all ease 0.5s;
+}
+
+.scroller {
+  overflow-y: scroll;
+  scrollbar-color: #0a4c95 #c2d2e4;
+}
+
+.testes {
+  width: 100%;
+  background: #2073c5;
+}
+
+.navColor {
+  background-color: white;
+}
+
+.foto {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: #2073c5;
+}
+
+.displays {
+  text-align: center;
+  margin-top: 2%;
+  margin-right: 16px;
+}
+
+.teste {
+  text-align: center;
+  background: white;
+  height: 33px;
+  padding: 7px 0px;
+  transition: all ease 0.1s;
+  cursor: pointer;
+}
+
+.teste:hover {
+  background: #e1e6f7;
+  color: #304bc7;
+  transition: all ease 0.1s;
+}
+
+.buttonRecuar {
+  margin-left: 18%;
+  font-size: 19px;
+  color: #bbcafb;
+  transition: all ease 0.5s;
+}
+
+.buttonRecuar:hover {
+  margin-left: 15%;
+  transition: all ease 0.5s;
+  color: #5775da;
+  cursor: pointer;
+}
+
+.menu-close {
+  width: 85px;
+  transition: all ease 0.5s;
+}
+
+.menu-open {
+  width: 240px;
+  transition: all ease 0.5s;
+}
+
+.menuColapseClose {
+  margin-left: 70px;
+  transition: all ease 0.5s;
+}
+
+.marginColapseOpen {
+  margin-left: 240px;
+  transition: all ease 0.5s;
+}
+
+.sideBar {
+  scrollbar-width: thin;
+  scrollbar-color: #d3d6e2;
+}

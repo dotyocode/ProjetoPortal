@@ -1,0 +1,139 @@
+<div class="row">
+  <div class="col-12">
+    <div class="col-1">
+      <div class="buttonVoltar" (click)="goToAdmin()">
+        <i style="margin-right: 10px" class="bi bi-arrow-return-left"></i>
+        <p> Voltar</p>
+      </div>
+    </div>
+    <h1 style="font-weight: bold;
+      color: #545d89;"><i style="margin-right: 10px;" class="bi
+        bi-collection-play-fill"></i>{{titleComponent}}</h1>
+  </div>
+  <div class="col-12 w-100"
+    style="margin-top: 1%;">
+    <form [formGroup]="formGroup">
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12" style="margin-right: 2%">
+          <p>Nome da Aula</p>
+          <app-input-dynamic
+            [inputType]="{ name: 'input-normal' }"
+            [readonly]="false"
+            [nameFormGroup]="formGroup"
+            [name]="'aulaName'"
+            [placeHolder]="'Digite nome da Aula'"
+            [tipo]="'text'"
+            [isInvalid]="true"
+            [id]="'aulaName'"
+            (validTouched)="validTouch($event)">
+          </app-input-dynamic>
+        </div>
+      </div>
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12">
+          <p>Descrição</p>
+          <app-input-dynamic
+            [inputType]="{ name: 'input-normal' }"
+            [readonly]="false"
+            [nameFormGroup]="formGroup"
+            [name]="'descricaoAula'"
+            [placeHolder]="'Digite a descrição'"
+            [tipo]="'text'"
+            [isInvalid]="true"
+            [id]="'descricaoAula'"
+            (validTouched)="validTouch($event)">
+          </app-input-dynamic>
+        </div>
+      </div>
+
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12">
+          <p>Video URL</p>
+          <app-input-dynamic
+            [inputType]="{ name: 'input-normal' }"
+            [readonly]="false"
+            [nameFormGroup]="formGroup"
+            [name]="'urlVideo'"
+            [placeHolder]="'Digite a URL'"
+            [tipo]="'text'"
+            [isInvalid]="true"
+            [id]="'urlVideo'"
+            (validTouched)="validTouch($event)">
+          </app-input-dynamic>
+        </div>
+      </div>
+
+      <button *ngIf="formVisible !== 'editarAula'" (click)="addItem()"
+        mat-raised-button color="primary">Adicionar
+        Aula</button>
+
+      <div class="col-12" style="display:
+        flex"
+        style="margin-top:
+        2%">
+        <div class="mb-3 col-12">
+          <mat-card class="example-card">
+            <mat-card-title>Aulas Adicionadas</mat-card-title>
+            <mat-card-subtitle *ngIf="formVisible !== 'editarAula'">Caso queira
+              remover alguma aula clique na lixeira</mat-card-subtitle>
+            <mat-card-subtitle *ngIf="formVisible !== 'adicionarAula'">Clique em
+              uma aula para poder editar</mat-card-subtitle>
+            <mat-card-content>
+              <table class="table table-hover col-12">
+                <thead>
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th *ngIf="size >= 570" scope="col">Descrição</th>
+                    <th *ngIf="size >= 570" scope="col">Url</th>
+                    <th *ngIf="formVisible !== 'editarAula'" scope="col">Ação</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="cursor: pointer" (click)="selectedCurso(i)"
+                    *ngFor="let i of aulas">
+                    <td>{{i.titulo}}</td>
+                    <td *ngIf="size >= 570">{{i.descricao}}</td>
+                    <td *ngIf="size >= 570">{{i.urlVideo}}</td>
+                    <td *ngIf="formVisible !== 'editarAula'"><i
+                        (click)='deleteItem(i.id)' class="bi bi-trash3-fill
+                        deleteItem"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+
+      <div class="col-8" style="display: flex">
+        <div class="mb-3 col-">
+          <app-button-dynamic
+            *ngIf="formVisible === 'adicionarAula'"
+            [buttonType]="{ name: 'button-normal' }"
+            [type]="'button'"
+            [id]="'buttonSubmit'"
+            [title]="loading === false ? 'Cadastrar Aula' : 'Carregando...'"
+            [autentication]="true"
+            [action]="'cadastrarCurso'"
+            [loading]="loading"
+            (buttonFunction)="stepActionButtons($event)">
+          </app-button-dynamic>
+
+          <app-button-dynamic
+            *ngIf="formVisible === 'editarAula'"
+            [buttonType]="{ name: 'button-normal' }"
+            [type]="'button'"
+            [id]="'buttonSubmit'"
+            [title]="loading === false ? 'Editar Aula' : 'Carregando...'"
+            [autentication]="true"
+            [action]="'editarCurso'"
+            [loading]="loading"
+            (buttonFunction)="stepActionButtons($event)">
+          </app-button-dynamic>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+</div>

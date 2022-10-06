@@ -1,0 +1,17 @@
+<h1 style="font-weight: bold;
+  color: #545d89;"><i class="bi bi-pencil-square"></i> Edição de
+  Curso</h1>
+<p>Seleciona abaixo um curso para poder continuar</p>
+
+<div style="margin-bottom: 3%">
+  <mat-form-field style="width: 100%;">
+    <mat-label>{{titles}}</mat-label>
+    <mat-select>
+      <mat-option (click)="selectedCurso(curso)"
+        *ngFor="let curso
+        of cursos; let i= index"
+        [value]="curso">{{curso.nome}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>

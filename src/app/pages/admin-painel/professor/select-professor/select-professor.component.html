@@ -1,0 +1,17 @@
+<h1 style="font-weight: bold;
+  color: #545d89;"><i class="bi bi-person-lines-fill"></i> Edição de
+  professores</h1>
+<p>Selecione abaixo um professor para poder continuar</p>
+
+<div style="margin-bottom: 3%">
+  <mat-form-field style="width: 100%;">
+    <mat-label>{{titles}}</mat-label>
+    <mat-select>
+      <mat-option (click)="selectedProfessor(prof)"
+        *ngFor="let prof
+        of professor; let i= index"
+        [value]="prof">{{prof.nome}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>

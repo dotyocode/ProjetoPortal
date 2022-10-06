@@ -1,0 +1,17 @@
+<h1 style="font-weight: bold;
+  color: #545d89;"><i class="bi bi-journal-richtext"></i> Edição de
+  Notícias</h1>
+<p>Selecione abaixo uma notícia para poder continuar</p>
+
+<div style="margin-bottom: 3%">
+  <mat-form-field style="width: 100%;">
+    <mat-label>{{titles}}</mat-label>
+    <mat-select>
+      <mat-option (click)="selectedProfessor(noticia)"
+        *ngFor="let noticia
+        of noticias; let i= index"
+        [value]="noticia">{{noticia.titulo}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>

@@ -1,0 +1,185 @@
+.curso {
+  display: flex;
+  justify-content: start;
+}
+
+.imagemContainer {
+  width: 100%;
+}
+
+.cursoInfo {
+  padding: 0 0 0 30px;
+
+  .titleCurso {
+    font-size: 32px;
+    font-weight: bold;
+    color: #6d6f7a;
+  }
+
+  .boxCurso {
+    background: rgb(230, 230, 230);
+    padding: 10px;
+
+    .cursoOnline {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .professor {
+      font-weight: 500;
+    }
+  }
+}
+
+.divInfomationCurso {
+  display: flex;
+  justify-content: center;
+  background: #fcfdff;
+}
+
+.divInfomationCursoMobile {
+  background: #fcfdff;
+}
+
+.paddingInformation {
+  padding: 15px 0 10px 10px;
+}
+
+.informationsC {
+  padding: 10px;
+}
+
+.informationTittle {
+  font-weight: bold;
+}
+
+.titleCurso {
+  color: white;
+  font-size: 37px;
+  font-weight: bold;
+  line-height: 100%;
+  width: 60%;
+}
+
+.titleCursoMobile {
+  color: white;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.cursoDescriptions {
+  color: white;
+  margin-bottom: 3%;
+}
+
+.informationEx {
+  color: white;
+}
+
+.imagems {
+  width: 100%;
+}
+
+.containerMaster2 {
+  width: auto;
+  position: absolute;
+  left: 2%;
+  top: 5%;
+  font-size: 28px;
+  opacity: 0.5;
+  transition: all ease 0.2s;
+  cursor: pointer;
+}
+
+.containerMaster2:hover {
+  opacity: 1;
+  transition: all ease 0.2s;
+}
+
+.containerMaster {
+  width: 25%;
+  position: absolute;
+  right: 13%;
+  top: 5%;
+  .imagem {
+    width: 100%;
+  }
+
+  .subContainer {
+    background: white;
+    height: auto;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
+
+    .division {
+      display: flex;
+      justify-content: center;
+
+      .buttonDivision {
+        margin-top: 2%;
+        width: 75%;
+
+        .buttonDiv {
+          font-size: 16px;
+          background: #304bc7;
+          padding: 10px;
+          text-align: center;
+          color: white;
+          border-radius: 5px;
+          transition: all ease 0.2s;
+          cursor: pointer;
+        }
+
+        .buttonDiv:hover {
+          font-size: 16px;
+          background: #6780f0;
+          padding: 10px;
+          text-align: center;
+          color: white;
+          border-radius: 5px;
+          transition: all ease 0.2s;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .subInformations {
+      padding: 20px;
+      // text-align: center;
+    }
+
+    .buttonDivs {
+      display: flex;
+      justify-content: space-around;
+      padding-bottom: 2%;
+    }
+  }
+}
+
+.centerLoading {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonDivsz {
+  font-size: 16px;
+  background: #304bc7;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  transition: all ease 0.2s;
+  cursor: pointer;
+  margin-top: 5%;
+}
+
+.buttonDivsz:hover {
+  font-size: 16px;
+  background: #6780f0;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  transition: all ease 0.2s;
+  cursor: pointer;
+}

@@ -1,0 +1,28 @@
+<div [formGroup]="nameFormGroup">
+  <ng-container *ngIf="inputType.name === 'input-autenticacao'">
+    <input
+      [readonly]="readonly"
+      [formControlName]="name"
+      [placeholder]="placeHolder"
+      [type]="tipo"
+      [id]="id"
+      class="form-control inputWidth"
+      [class.has-error]="isInvalid ? getValidTouched(name) : ''"
+      (blur)="inputTrim($any($event).target.value, name)"
+      />
+  </ng-container>
+
+  <ng-container *ngIf="inputType.name === 'input-normal'">
+    <input
+      [readonly]="readonly"
+      [formControlName]="name"
+      [placeholder]="placeHolder"
+      [type]="tipo"
+      [id]="id"
+      [maxlength]="maxLenght"
+      class="form-control input-normal"
+      [class.has-error]="isInvalid ? getValidTouched(name) : ''"
+      (blur)="inputTrim($any($event).target.value, name)"
+      />
+  </ng-container>
+</div>

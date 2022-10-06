@@ -1,0 +1,96 @@
+<div class="row">
+  <div class="col-12">
+    <div class="col-1">
+      <div class="buttonVoltar" (click)="goToAdmin()">
+        <i style="margin-right: 10px" class="bi bi-arrow-return-left"></i>
+        <p> Voltar</p>
+      </div>
+    </div>
+    <h1 style="font-weight: bold;
+      color: #545d89;"><i style="margin-right: 10px;" class="bi
+        bi-journal-richtext"></i>{{titleComponent}}</h1>
+  </div>
+  <div class="col-12"
+    style="margin-top: 1%;">
+    <form [formGroup]="formGroup">
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12" style="margin-right: 2%">
+          <p>Titúlo da Notícia</p>
+          <app-input-dynamic
+            [inputType]="{ name: 'input-normal' }"
+            [readonly]="false"
+            [nameFormGroup]="formGroup"
+            [name]="'tituloNoticias'"
+            [placeHolder]="'Digite o titúlo da notícia'"
+            [tipo]="'text'"
+            [isInvalid]="true"
+            [id]="'tituloNoticias'"
+            (validTouched)="validTouch($event)">
+          </app-input-dynamic>
+        </div>
+      </div>
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12">
+          <p>Autor</p>
+          <app-input-dynamic
+            [inputType]="{ name: 'input-normal' }"
+            [readonly]="false"
+            [nameFormGroup]="formGroup"
+            [name]="'autor'"
+            [placeHolder]="'Digite o Autor'"
+            [tipo]="'text'"
+            [isInvalid]="true"
+            [id]="'autor'"
+            (validTouched)="validTouch($event)">
+          </app-input-dynamic>
+        </div>
+      </div>
+
+      <div class="col-8" style="display: flex">
+        <div class="mb-3 col-12">
+          <p>Capa da Notícia</p>
+          <input type="file" name="fotoProfessor" (change)="selectFile($event)">
+        </div>
+      </div>
+
+      <div class="col-12" style="display: flex">
+        <div class="mb-3 col-12">
+          <ckeditor formControlName="textoNoticia">
+          </ckeditor>
+        </div>
+      </div>
+
+
+      <div class="col-8" style="display: flex">
+        <div class="mb-3 col-">
+          <app-button-dynamic
+            *ngIf="formVisible === 'adicionarNoticias'"
+            [buttonType]="{ name: 'button-normal' }"
+            [type]="'button'"
+            [id]="'buttonSubmit'"
+            [title]="loading === false ? 'Cadastrar Notícia' :
+            'Carregando...'"
+            [autentication]="true"
+            [action]="'cadastrarCurso'"
+            [loading]="loading"
+            (buttonFunction)="stepActionButtons($event)">
+          </app-button-dynamic>
+
+          <app-button-dynamic
+            *ngIf="formVisible === 'editarNoticias'"
+            [buttonType]="{ name: 'button-normal' }"
+            [type]="'button'"
+            [id]="'buttonSubmit'"
+            [title]="loading === false ? 'Editar Notícia' : 'Carregando...'"
+            [autentication]="true"
+            [action]="'editarCurso'"
+            [loading]="loading"
+            (buttonFunction)="stepActionButtons($event)">
+          </app-button-dynamic>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+</div>

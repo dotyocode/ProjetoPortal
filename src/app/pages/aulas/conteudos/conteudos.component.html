@@ -1,0 +1,48 @@
+<div *ngIf="mostrar" class="">
+  <div class="row" style="margin-bottom: 2%;">
+    <div class="col-12 col-md-8 col-sm-12" [style.margin-bottom]="size >= 1214 ?
+      '0%' : '10%'">
+      <div style="background: black; height: 100%;">
+        <iframe [style.height]="size >= 1214 ? '65vh' : '30vh'" style="width:
+          100%;" [src]="url | safe" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 col-sm-12">
+      <div class="containerTitles">
+        <h1 class="disponiveis">Aulas dispóniveis</h1>
+        <p (click)="goToDashboard()" class="buttonSeeMore">Voltar Dashboard</p>
+      </div>
+      <div style="background: white; padding: 10px;
+        max-height: 65vh;
+        overflow: auto;">
+        <mat-selection-list #shoes [multiple]="false">
+          <mat-list-option style="margin-bottom: 2%" *ngFor="let itens of aula,
+            let i= index"
+            [value]="itens" [selected]="itens && i == 0"
+            (click)="selecionarAula(itens)">
+            <div>
+              <i *ngIf="itens" style="padding-right: 2%" class="bi
+                bi-play-fill"></i>
+              {{itens.titulo}}
+            </div>
+          </mat-list-option>
+        </mat-selection-list>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-8 col-sm-12">
+    <div style="background: white; padding: 15px">
+      <div>
+        <p style="font-weight: bold; font-size: 25px; color: #545d89;
+          line-height: 100%;">{{titulo}}</p>
+      </div>
+      <div>
+        <p style="font-size: 18px; font-weight: 500">Descrição:</p>
+        <p>{{descricao}}</p>
+      </div>
+    </div>
+  </div>
+
+</div>

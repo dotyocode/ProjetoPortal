@@ -1,0 +1,82 @@
+.autenticationButton {
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  background: #4364e8;
+  border-radius: 5px;
+  text-decoration: none;
+  border: none;
+  transition: all 0.1s ease 0s;
+}
+
+.autenticationButton:hover {
+  color: white;
+  background: #0687ff;
+  transition: all 0.1s ease 0s;
+}
+
+.borderOnly {
+  border: 1px solid #4364e8;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  color: #4364e8;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-bottom: 5%;
+  transition: all 0.1s ease 0s;
+}
+
+.borderOnly:hover {
+  background: #4364e8;
+  color: #ffffff;
+  transition: all 0.1s ease 0s;
+}
+
+.icons {
+  padding: 0px 11px;
+  font-size: 26px;
+  border: 1px solid rgb(178, 181, 195);
+  border-radius: 8px;
+  color: #4364e8;
+  width: 49px;
+  height: 40px;
+  margin-right: 7px;
+  transition: all 0.2s ease 0s;
+  cursor: pointer;
+}
+
+.icons:hover {
+  color: #ffffff;
+  background-color: #4364e8;
+  transition: all 0.2s ease 0s;
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: not-allowed;
+  background-color: rgb(221, 224, 229);
+  border-color: rgb(221, 224, 229);
+  color: rgb(124, 133, 151);
+  border-radius: 5px;
+  text-decoration: none;
+  border: none;
+  transition: all 0.1s ease 0s;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+.text-button {
+  color: #4364e8;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease 0s;
+  border: none;
+}
+
+.text-button:hover {
+  color: #9aaeff;
+  transition: all 0.2s ease 0s;
+}

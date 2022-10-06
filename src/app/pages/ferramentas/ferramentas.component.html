@@ -1,0 +1,32 @@
+<div *ngIf="itens === false" class="col-12">
+  <div class="centerLoading">
+    <div>
+      <mat-spinner [diameter]="70" value="determinate"></mat-spinner>
+      <p class="titleLoading">Carregando</p>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top: 2%" class="col-12 col-md-8
+  col-sm-12">
+  <div *ngIf="itens === true">
+    <div class="containerTitles">
+      <h1 class="noticiaTitle">Ferramentas</h1>
+    </div>
+    <div class="image-cards" [ngClass]="this.sizes >= 768 ? 'image-cardMobile'
+      : ''" >
+      <div style="margin-right: 2%;" *ngFor="let f of ferramentas"
+        [style.width]="this.sizes >= 768 ? '38%'
+        :
+        '100%'" [style.margin-top]="this.sizes >= 768 ? '' :
+        '2%'" class="image-card image-card--shadow is-selected"
+        aria-selected="true">
+        <a href="{{f.url}}">
+          <div class="image-card__image" style="background-image:
+            url({{f.urlFoto}});"></div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,314 @@
+<div *ngIf="this.register === false && !this.remember && !this.rememberTwo">
+  <p *ngIf="this.sizes <= 767" class="texts">K</p>
+  <div class="welcomeMessage">
+    <p [ngClass]="this.sizes >= 768 ? 'vindas' :
+      'vindasMobile'" class="vindas">Tenha acesso gratuitamente a aulas e
+      ferramentas de marketing e gestão. Entre e confira.</p>
+  </div>
+  <div class="formChart">
+    <form [formGroup]="formGroup">
+      <div class="mb-3">
+        <app-input-dynamic
+          [inputType]="{ name: 'input-autenticacao' }"
+          [readonly]="false"
+          [nameFormGroup]="formGroup"
+          [name]="'user'"
+          [placeHolder]="'Usuario ou E-mail'"
+          [tipo]="'email'"
+          [isInvalid]="true"
+          [id]="'user'"
+          (validTouched)="validTouch($event)">
+        </app-input-dynamic>
+      </div>
+      <div class="mb-3">
+        <app-input-dynamic
+          [inputType]="{ name: 'input-autenticacao' }"
+          [readonly]="false"
+          [nameFormGroup]="formGroup"
+          [name]="'senha'"
+          [placeHolder]="'senha'"
+          [tipo]="'password'"
+          [id]="'senha'"
+          (validTouched)="validTouch($event)">
+        </app-input-dynamic>
+      </div>
+      <app-button-dynamic
+        [buttonType]="{ name: 'button-normal' }"
+        [type]="'button'"
+        [id]="'buttonSubmit'"
+        [title]="loading === false ? 'Entrar' : 'Carregando...'"
+        [autentication]="true"
+        [action]="'login'"
+        [loading]="loading"
+        [disabled]="!this.formGroup.valid ? true : false"
+        (buttonFunction)="stepActionButtons($event)">
+      </app-button-dynamic>
+
+      <mat-progress-bar *ngIf="this.loading === true" mode="indeterminate"></mat-progress-bar>
+    </form>
+  </div>
+  <div class="signUpMore">
+    <p class="infoSignUpMore">Ou entre com</p>
+    <div class="flexDiv">
+      <app-button-dynamic
+        [buttonType]="{ name: 'button-icon' }"
+        [type]="'button'"
+        [id]="'buttonSubmit'"
+        [icon]="true"
+        [classes]="'bi bi-facebook'"
+        [action]="'loginFacebook'"
+        [loading]="loading"
+        [disabled]="false"
+        (buttonFunction)="stepActionButtons($event)">
+      </app-button-dynamic>
+      <app-button-dynamic
+        [buttonType]="{ name: 'button-icon' }"
+        [type]="'button'"
+        [id]="'buttonSubmit'"
+        [icon]="true"
+        [classes]="'bi bi-google'"
+        [action]="'loginGoogle'"
+        [disabled]="false"
+        (buttonFunction)="stepActionButtons($event)">
+      </app-button-dynamic>
+    </div>
+  </div>
+  <hr>
+  <div>
+    <app-button-dynamic
+      [buttonType]="{ name: 'button-normal' }"
+      [type]="'submit'"
+      [id]="'buttonSubmit'"
+      [title]="'Criar conta'"
+      [borderOnly]="true"
+      [action]="'cadastrar'"
+      [disabled]="false"
+      (buttonFunction)="stepActionButtons($event)">
+    </app-button-dynamic>
+  </div>
+  <div style="display: flex; justify-content: center;">
+    <app-button-dynamic
+      [buttonType]="{ name: 'button-text' }"
+      [type]="'submit'"
+      [id]="'buttonSubmit'"
+      [title]="'Esqueci minha senha'"
+      [textButton]="true"
+      [action]="'esqueciSenha'"
+      [disabled]="false"
+      (buttonFunction)="stepActionButtons($event)"
+      class="">
+    </app-button-dynamic>
+  </div>
+</div>
+
+
+<div *ngIf="this.remember === true && !rememberTwo">
+  <div class="welcomeMessage">
+    <p (click)="voltar()" style="cursor: pointer"><i class="bi bi-arrow-left"></i>
+      Voltar</p>
+    <h1 class="vindas">Esqueceu sua senha?</h1>
+    <p style="background: rgb(13 110 253 / 25%);
+      padding: 10px;
+      border-radius: 10px;
+      width: 100%;">Não se preocupe!
+      O link para redefinir a senha será enviado para o seu email.</p>
+  </div>
+  <div class="formChart">
+    <form [formGroup]="formGroupRemember">
+      <div class="mb-3">
+        <app-input-dynamic
+          [inputType]="{ name: 'input-autenticacao' }"
+          [readonly]="false"
+          [nameFormGroup]="formGroupRemember"
+          [name]="'user'"
+          [placeHolder]="'E-mail'"
+          [tipo]="'email'"
+          [isInvalid]="true"
+          [id]="'user'"
+          (validTouched)="validTouch($event)">
+        </app-input-dynamic>
+      </div>
+
+      <app-button-dynamic
+        [buttonType]="{ name: 'button-normal' }"
+        [type]="'button'"
+        [id]="'buttonSubmit'"
+        [title]="loading === false ? 'Enviar' : 'Carregando...'"
+        [autentication]="true"
+        [action]="'recuperar'"
+        [disabled]="!this.formGroupRemember.valid ? true : false"
+        (buttonFunction)="stepActionButtons($event)">
+      </app-button-dynamic>
+
+      <mat-progress-bar *ngIf="this.loading === true" mode="indeterminate"></mat-progress-bar>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="this.rememberTwo === true">
+  <div class="welcomeMessage">
+    <p (click)="voltar()"><i class="bi bi-arrow-left"></i> Voltar</p>
+    <h1 class="vindas">Vamos mudar a sua senha?</h1>
+    <p style="padding: 10px;
+      border-radius: 10px;
+      width: 100%;">Informe abaixo o email, código e sua nova senha ;)</p>
+  </div>
+  <div class="formChart">
+    <form [formGroup]="formGroupRememberTwo">
+      <div class="mb-3">
+        <app-input-dynamic
+          [inputType]="{ name: 'input-autenticacao' }"
+          [readonly]="false"
+          [nameFormGroup]="formGroupRememberTwo"
+          [name]="'user'"
+          [placeHolder]="'E-mail'"
+          [tipo]="'email'"
+          [isInvalid]="true"
+          [id]="'user'"
+          (validTouched)="validTouch($event)">
+        </app-input-dynamic>
+      </div>
+      <div class="mb-3">
+        <app-input-dynamic
+          [inputType]="{ name: 'input-autenticacao' }"
+          [readonly]="false"
+          [nameFormGroup]="formGroupRememberTwo"
+          [name]="'token'"
+          [placeHolder]="'Código'"
+          [tipo]="'text'"
+          [isInvalid]="true"
+          [id]="'token'"
+          (validTouched)="validTouch($event)">
+        </app-input-dynamic>
+      </div>
+      <div class="mb-3">
+        <app-input-dynamic
+          [inputType]="{ name: 'input-autenticacao' }"
+          [readonly]="false"
+          [nameFormGroup]="formGroupRememberTwo"
+          [name]="'newPassword'"
+          [placeHolder]="'Nova Senha'"
+          [tipo]="'text'"
+          [isInvalid]="true"
+          [id]="'newPassword'"
+          (validTouched)="validTouch($event)">
+        </app-input-dynamic>
+      </div>
+
+      <app-button-dynamic
+        [buttonType]="{ name: 'button-normal' }"
+        [type]="'button'"
+        [id]="'buttonSubmit'"
+        [title]="loading === false ? 'Enviar' : 'Carregando...'"
+        [autentication]="true"
+        [action]="'mudar'"
+        [disabled]="!this.formGroupRememberTwo.valid ? true : false"
+        (buttonFunction)="stepActionButtons($event)">
+      </app-button-dynamic>
+
+      <mat-progress-bar *ngIf="this.loading === true" mode="indeterminate"></mat-progress-bar>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="this.register === true">
+  <div class="welcomeMessage">
+    <h1 class="vindas">Crie sua conta em 1 minuto.</h1>
+    <h1 class="vindas">É rápido e gratuito!</h1>
+  </div>
+  <div class="formChart">
+    <form [formGroup]="formGroupRegister">
+      <div class="mb-3">
+        <app-input-dynamic
+          [inputType]="{ name: 'input-autenticacao' }"
+          [readonly]="false"
+          [nameFormGroup]="formGroupRegister"
+          [name]="'name'"
+          [placeHolder]="'Nome'"
+          [tipo]="'text'"
+          [isInvalid]="true"
+          [id]="'name'"
+          (validTouched)="validTouch($event)">
+        </app-input-dynamic>
+      </div>
+      <div class="mb-3">
+        <app-input-dynamic
+          [inputType]="{ name: 'input-autenticacao' }"
+          [readonly]="false"
+          [nameFormGroup]="formGroupRegister"
+          [name]="'user'"
+          [placeHolder]="'E-mail'"
+          [tipo]="'email'"
+          [isInvalid]="true"
+          [id]="'user'"
+          (validTouched)="validTouch($event)">
+        </app-input-dynamic>
+      </div>
+      <div class="mb-3">
+        <app-input-dynamic
+          [inputType]="{ name: 'input-autenticacao' }"
+          [readonly]="false"
+          [nameFormGroup]="formGroupRegister"
+          [name]="'senha'"
+          [placeHolder]="'senha'"
+          [tipo]="'password'"
+          [id]="'senha'"
+          (validTouched)="validTouch($event)">
+        </app-input-dynamic>
+      </div>
+      <app-button-dynamic
+        [buttonType]="{ name: 'button-normal' }"
+        [type]="'button'"
+        [id]="'buttonSubmit'"
+        [title]="'Registrar'"
+        [autentication]="true"
+        [action]="'registrar'"
+        [disabled]="!this.formGroupRegister.valid ? true : false"
+        (buttonFunction)="stepActionButtons($event)">
+      </app-button-dynamic>
+    </form>
+  </div>
+
+
+  <div style="display: flex; justify-content: center;">
+    <app-button-dynamic
+      [buttonType]="{ name: 'button-text' }"
+      [type]="'submit'"
+      [id]="'buttonSubmit'"
+      [title]="'Já tem uma conta? Acesse.'"
+      [textButton]="true"
+      [action]="'voltar'"
+      [disabled]="false"
+      (buttonFunction)="stepActionButtons($event)"
+      class="">
+    </app-button-dynamic>
+  </div>
+
+  <hr>
+
+  <div class="signUpMore">
+    <p class="infoSignUpMore">Ou cadastra-se com</p>
+    <div class="flexDiv">
+      <app-button-dynamic
+        [buttonType]="{ name: 'button-icon' }"
+        [type]="'button'"
+        [id]="'buttonSubmit'"
+        [icon]="true"
+        [classes]="'bi bi-facebook'"
+        [action]="'loginFacebook'"
+        [disabled]="false"
+        (buttonFunction)="stepActionButtons($event)">
+      </app-button-dynamic>
+      <app-button-dynamic
+        [buttonType]="{ name: 'button-icon' }"
+        [type]="'button'"
+        [id]="'buttonSubmit'"
+        [icon]="true"
+        [classes]="'bi bi-google'"
+        [action]="'loginGoogle'"
+        [disabled]="false"
+        (buttonFunction)="stepActionButtons($event)">
+      </app-button-dynamic>
+    </div>
+  </div>
+</div>

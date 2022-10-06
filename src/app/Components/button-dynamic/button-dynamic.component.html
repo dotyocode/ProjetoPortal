@@ -1,0 +1,38 @@
+<ng-container *ngIf="buttonType.name === 'button-normal'">
+  <button
+    [type]="type"
+    [id]="id"
+    [title]="title"
+    [class.autenticationButton]="!disabled ? autentication : ''"
+    [class.normal-button]="normalButton"
+    [class.borderOnly]="borderOnly"
+    [class.disabled]="disabled"
+    (click)="buttonSendFunction($event, disabled)">
+    {{title}}
+  </button>
+</ng-container>
+
+<ng-container *ngIf="buttonType.name === 'button-icon'">
+  <button
+    [type]="type"
+    [id]="id"
+    [title]="title"
+    [class.icons]="icon"
+    [class]="classes"
+    [class.disabled]="disabled"
+    (click)="buttonSendFunction($event, disabled)">
+  </button>
+</ng-container>
+
+<ng-container *ngIf="buttonType.name === 'button-text'">
+  <button
+    [type]="type"
+    [id]="id"
+    [title]="title"
+    [class.autenticationButton]="autentication"
+    [class.text-button]="textButton"
+    [class.disabled]="disabled"
+    (click)="buttonSendFunction($event, disabled)">
+    {{title}}
+  </button>
+</ng-container>
